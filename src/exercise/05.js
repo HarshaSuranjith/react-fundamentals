@@ -21,15 +21,15 @@ const largeBox = <div className='box box--large' style={{backgroundColor: 'orang
 function App() {
   return (
     <div>
-      <Box className="box box--small" style={{backgroundColor: 'lightblue', fontStyle: 'italic' }}>small lightblue box</Box>
-      <Box className="box box--medium" style={{backgroundColor: 'pink', fontStyle: 'italic' }}>medium pink box</Box>
-      <Box className="box box--large" style={{backgroundColor: 'orange', fontStyle: 'italic' }}>large orange box</Box>
+      <Box className="box--small" style={{backgroundColor: 'lightblue' }}>small lightblue box</Box>
+      <Box className="box--medium" style={{backgroundColor: 'pink' }}>medium pink box</Box>
+      <Box className="box--large" style={{backgroundColor: 'orange'}}>large orange box</Box>
     </div>
   )
 }
 
-function Box(props){
-    return <div className={props.className} style={props.style}>{props.children}</div>
+function Box({className, style, ...otherProps}){
+    return <div className={`box ${className}`}  style={{fontStyle: 'italic', ...style}} {...otherProps}></div>
 }
 
 export default App
